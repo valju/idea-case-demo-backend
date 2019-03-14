@@ -66,15 +66,15 @@ app.get('/category', function (req, res) {
 
 // POST category (id, name, budget)
 app.post('/category', function (req, res) {
-    let id = req.body.id;
+    let id = Number(req.body.id);
     let name = req.body.name;
-    let budget = req.body.budget;
+    let budget = Number(req.body.budget);
     let newItem = { id, name, budget };
     addItemToJsonArrayFile(res, newItem);
 })
 
 // DELETE category?id=1001
-app.delete('/delete_category', function (req, res) {
+app.delete('/category', function (req, res) {
 	let id = req.query.id;
 	if (!id) {
 		res.writeHead(400, { 'Content-Type': 'text/plain' });
